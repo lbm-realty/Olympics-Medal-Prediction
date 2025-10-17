@@ -21,10 +21,11 @@ teams.corr()["medals"]
 # Visualizing relationships
 sns.lmplot(x="athletes", y="medals", data=teams, fit_reg=True, ci=None)
 sns.lmplot(x="age", y="medals", data=teams, fit_reg=True, ci=None)
+
+# Cleaning the data and making appropriate selections
 teams.plot.hist(y="medals")
 teams[teams.isnull().any(axis=1)]
 teams = teams.dropna()
-
 train = teams[teams["year"] < 2012].copy()
 test = teams[teams["year"] >= 2012].copy()
 
